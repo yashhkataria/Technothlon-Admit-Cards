@@ -17,7 +17,7 @@ function App() {
       const response = await axios.get('https://technothlon-admit-cards-api.vercel.app/api/get-admit-card', { responseType: 'blob' });
       const pdfBlob = new Blob([response.data], { type: 'application/pdf' });
       console.log('hello');
-      saveAs.error(pdfBlob, `Technothlon_Admit_Card_${rollNumber}.pdf`);
+      saveAs(pdfBlob, `Technothlon_Admit_Card_${rollNumber}.pdf`);
       console.log('saveas');
     } catch (err) {
       window.alert('An error occurred while downloading the admit card');
