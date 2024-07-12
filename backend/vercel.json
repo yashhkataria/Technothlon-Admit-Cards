@@ -1,11 +1,20 @@
 {
     "version": 2,
-    "builds": [{
+    "builds": [
+      {
         "src": "server.js",
         "use": "@vercel/node"
-    }],
-    "routes": [{
-        "src": "/(.*)",
-        "dest": "/"
-    }]
-}
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/create-admit-card",
+        "dest": "/server.js"
+      },
+      {
+        "src": "/api/get-admit-card",
+        "dest": "/server.js"
+      }
+    ]
+  }
+  
