@@ -8,18 +8,13 @@ dotenv.config();
 
 const app = express();
 
-// CORS options
 const corsOptions = {
-  origin: 'https://technothlon-admit-cards.vercel.app',
+  origin: '*',
   credentials: true,
+  methods: ['GET', 'POST'],
 };
-
-// Apply CORS middleware before routes
+app.options("", cors(corsOptions));
 app.use(cors(corsOptions));
-
-// Handle preflight requests
-app.options('*', cors(corsOptions));
-
 app.use(express.json());
 
 connectDB();
