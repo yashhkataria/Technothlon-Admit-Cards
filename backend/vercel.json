@@ -8,13 +8,8 @@
     ],
     "routes": [
       {
-        "src": "/api/create-admit-card",
-        "dest": "/server.js"
-      },
-      {
-        "src": "/api/get-admit-card",
-        "dest": "/server.js"
+        "src": "/(.*)",
+        "dest": "server.js"
       }
     ]
   }
-  
