@@ -8,12 +8,12 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors(
-    {
-        origin: "*",
-        credentials: true
-    }
-));
+const corsOptions = {
+  origin: 'https://technothlon-admit-cards.vercel.app',
+  credentials: true,
+}
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 connectDB();
