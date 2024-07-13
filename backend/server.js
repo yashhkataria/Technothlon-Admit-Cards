@@ -26,9 +26,9 @@ app.use(express.json());
 
 connectDB();
 
-app.get('/', (req, res) => {
-  res.send('Admit card hello!');
-});
+// app.get('/', (req, res) => {
+//   res.send('Admit card hello!');
+// });
 
 app.use('/api', router);
 

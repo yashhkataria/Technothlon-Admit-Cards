@@ -17,7 +17,7 @@ function App() {
 
   const getAdmitCard = async () => {
     try {
-      const response = await axios.get('https://technothlon-admit-cards-api.vercel.app/api/get-admit-card', { responseType: 'blob' });
+      const response = await axios.get('https://technothlon-admit-cards-api.vercel.app/api');
       console.log(response);
     } catch (err) {
       console.log(err);
