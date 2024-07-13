@@ -11,19 +11,15 @@ function App() {
     setRollNumber(e.target.value);
   };
 
+  const local = false;
+  const url = local ? 'http://localhost:3002' : 'https://technothlon-admit-cards-api.vercel.app';
+
   const createAndDownloadAdmitCard = async (rollNumber) => {
     try {
-      // server
-      await axios.post('https://technothlon-admit-cards.onrender.com/api/create-admit-card', { rollNumber });
-      const response = await axios.get('https://technothlon-admit-cards.onrender.com/api/get-admit-card', { responseType: 'blob' });
-
-      // local
-      // await axios.post('http://localhost:3002/api/create-admit-card', { rollNumber });
-      // const response = await axios.get('http://localhost:3002/api/get-admit-card', { responseType: 'blob' });
+      await axios.post(`${url}/api/create-admit-card`, { rollNumber });
+      const response = await axios.get(`${url}/api/get-admit-card`, { responseType: 'blob' });
       const pdfBlob = new Blob([response.data], { type: 'application/pdf' });
-      console.log('hello');
       saveAs(pdfBlob, `Technothlon_Admit_Card_${rollNumber}.pdf`);
-      console.log('saveas');
     } catch (err) {
       window.alert('An error occurred while downloading the admit card');
       console.log(err);
