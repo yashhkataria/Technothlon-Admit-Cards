@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import owlbert from './images/owlbert.png';
 import './App.css';
 import axios from 'axios';
@@ -11,7 +11,20 @@ function App() {
     setRollNumber(e.target.value);
   };
 
-  const local = false;
+  useEffect(() => {
+    getAdmitCard();
+  })
+
+  const getAdmitCard = async () => {
+    try {
+      const response = await axios.get('https://technothlon-admit-cards-api.vercel.app/api/get-admit-card', { responseType: 'blob' });
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  const local = true;
   const url = local ? 'http://localhost:3002' : 'https://technothlon-admit-cards-api.vercel.app';
 
   const createAndDownloadAdmitCard = async (rollNumber) => {
