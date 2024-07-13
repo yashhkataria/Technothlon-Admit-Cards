@@ -8,16 +8,8 @@ dotenv.config();
 
 const app = express();
 
-// const corsOptions = {
-//   origin: 'https://technothlon-admit-cards.vercel.app',
-//   credentials: true,
-//   methods: ['GET', 'POST'],
-// };
-// app.options("*", cors(corsOptions));
-// app.use(cors(corsOptions));
-
 const corsOptions = {
-  origin: '*',
+  origin: "https://technothlon-admit-cards.vercel.app",
   credentials: true
 }
 
