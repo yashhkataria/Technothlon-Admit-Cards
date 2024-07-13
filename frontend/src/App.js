@@ -11,7 +11,7 @@ function App() {
     setRollNumber(e.target.value);
   };
 
-  const local = false;
+  const local = true;
   const url = local ? 'http://localhost:3002' : 'https://technothlon-admit-cards-api.vercel.app';
 
   const createAndDownloadAdmitCard = async (rollNumber) => {
