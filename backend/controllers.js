@@ -31,7 +31,7 @@ const createAdmitCard = async (req, res) => {
         pdf.create(pdfTemplate({ name1, name2, roll: rollno, centre }), {}).toFile(filePath, async (err) => {
             if(err) {
                 console.log('Error creating pdf');
-                return res.status(500).send('Error creating pdf', err);
+                res.status(500).send('Error creating pdf', err);
             }
             try {
                 const existingPdfBytes = fs.readFileSync(filePath);
