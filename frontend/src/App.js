@@ -14,12 +14,12 @@ function App() {
   const createAndDownloadAdmitCard = async (rollNumber) => {
     try {
       // server
-      // await axios.post('https://technothlon-admit-cards-backend.vercel.app/api/create-admit-card', { rollNumber });
-      // const response = await axios.get('https://technothlon-admit-cards-backend.vercel.app/api/get-admit-card', { responseType: 'blob' });
+      await axios.post('https://technothlon-admit-cards.onrender.com/api/create-admit-card', { rollNumber });
+      const response = await axios.get('https://technothlon-admit-cards.onrender.com/api/get-admit-card', { responseType: 'blob' });
 
       // local
-      await axios.post('http://localhost:3002/api/create-admit-card', { rollNumber });
-      const response = await axios.get('http://localhost:3002/api/get-admit-card', { responseType: 'blob' });
+      // await axios.post('http://localhost:3002/api/create-admit-card', { rollNumber });
+      // const response = await axios.get('http://localhost:3002/api/get-admit-card', { responseType: 'blob' });
       const pdfBlob = new Blob([response.data], { type: 'application/pdf' });
       console.log('hello');
       saveAs(pdfBlob, `Technothlon_Admit_Card_${rollNumber}.pdf`);
